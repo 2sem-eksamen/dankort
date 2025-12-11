@@ -30,12 +30,6 @@ img {
 
 }
 
-.burgermenu{
-    width: 20%;
-    height: auto;
-    margin-left: 10rem;
-}
-
 header{
     display: grid;
     grid-template-columns: 1fr 1fr;
