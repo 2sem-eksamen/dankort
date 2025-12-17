@@ -1,4 +1,4 @@
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const supabase = createClient(
   "https://ybukjrunegrgimscoahw.supabase.co",
@@ -8,9 +8,7 @@ const supabase = createClient(
 const container = document.getElementById("challenges_container");
 
 async function getData() {
-  const { data, error } = await supabase
-    .from("challenges")
-    .select("*");
+  const { data, error } = await supabase.from("challenges").select("*");
 
   if (error) {
     console.error("Supabase fejl:", error);
@@ -25,21 +23,58 @@ getData();
 
 function showData(data) {
   data.forEach((id) => {
-    challenges_container.innerHTML += `
-      <article class = "mærker"> 
-        <div class ="${id.Optjenpoints ? "pointpris" : ""}">
-      <div class = "pointsbanner">
-      ${id.Optjenpoints ? `<h3 class="point">${id.Optjenpoints} points</h3>` : ""}
-         </div>
-        
-  </div>
-  <div class = "tekstblok">
-        <h2>${id.Titel}</h2>
-        <h4>${id.Beskrivelse}</h4>
-      </div>  
-        </article>
-
+    container.innerHTML += `
+      <article class="mærker"> 
+        <div class="${id.Optjenpoints ? "pointpris" : ""}">
+          <div class="pointsbanner">
+            ${
+              id.Optjenpoints
+                ? `<h3 class="point">${id.Optjenpoints} points</h3>`
+                : ""
+            }
+          </div>
+        </div>
+        <div class="tekstblok">
+          <h2>${id.Titel}</h2>
+          <h4>${id.Beskrivelse}</h4>
+          <!-- Knap der åbner popup -->
+          <button 
+            class="trigger-btn kobnu_knap" 
+            data-title="${id.Titel}" 
+            data-description="${id.Beskrivelse}">
+            Tilmeld
+          </button>
+        </div>  
+      </article>
     `;
   });
-
 }
+
+// --- Popup ÅBN: via knapper genereret i innerHTML ---
+container.addEventListener("click", (e) => {
+  const btn = e.target.closest(".kobnu_knap");
+  if (!btn) return;
+
+  // Hent tekst fra knappen
+  const title = btn.dataset.title || "Titel";
+  const description = btn.dataset.description || "";
+
+  // Sæt tekst ind i popup
+  document.getElementById("popup-title").textContent = title;
+  document.getElementById("popup-description").textContent = description;
+
+  // Åbn popup
+  document.getElementById("offer-toggle").checked = true;
+});
+
+// --- Popup LUK: via kryds-knap ---
+document.getElementById("close-btn").addEventListener("click", () => {
+  document.getElementById("offer-toggle").checked = false;
+});
+
+// --- Popup LUK: klik på overlay udenfor indholdet ---
+document.getElementById("popup-overlay").addEventListener("click", (e) => {
+  if (e.target.id === "popup-overlay") {
+    document.getElementById("offer-toggle").checked = false;
+  }
+});
