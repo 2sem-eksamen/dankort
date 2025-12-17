@@ -278,7 +278,7 @@ img {
 
   header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     padding-block: 1.5rem;
     background-color: rgba(207, 222, 232, 1);
   }
