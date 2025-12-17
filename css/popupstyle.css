@@ -11,6 +11,7 @@
   width: 0;
 }
 
+/*** kanppen der trigger popup style ***/
 .trigger-btn {
   padding: 12px 24px;
   background-color: #007bff;
@@ -27,6 +28,7 @@
   transform: translateY(-2px);
 }
 
+/*** popuo desktop formatet style ***/
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -42,6 +44,8 @@
   transition: all 0.3s ease;
   z-index: 1000;
 }
+
+/*** indholdet i popup style ****/
 
 .popup-content {
   background-color: #e9f0f5;
@@ -64,8 +68,9 @@
   color: #333;
 }
 
-h2 {
-  color: darkblue;
+/** titel i popup style **/
+#popup-title {
+  color: #21303f;
   margin-bottom: 15px;
 }
 
@@ -144,10 +149,10 @@ h2 {
   color: #333;
 }
 
-h2 {
+/* h2 {
   color: darkblue;
   margin-bottom: 15px;
-}
+} */
 
 .cta-btn1:hover {
   background-color: darkorange;
