@@ -826,6 +826,7 @@ p {
     background-color: #96ac4e;
     border-radius: 35px;
     margin: 10px 0px 10px 10px;
+    height: 64%;
   }
 
   #dinepoints h2 {
@@ -840,6 +841,8 @@ p {
     width: 100%;
     border-radius: 35px;
     margin: 10px 10px 10px 0px;
+    object-fit: cover;
+    height: 64%;
   }
 
   .udvidetform {
@@ -1008,6 +1011,7 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr; /* venstre og højre */
     gap: 10px;
+    margin-bottom: -5rem;
    }
   /******************************************* footer - MOBIL ************************************************/
 
