@@ -42,7 +42,7 @@ function showData(data) {
             class="trigger-btn kobnu_knap" 
             data-title="${id.Titel}" 
             data-description="${id.Beskrivelse}">
-            Tilmeld
+            TILMELD
           </button>
         </div>  
       </article>
